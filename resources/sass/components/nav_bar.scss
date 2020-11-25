@@ -1,0 +1,48 @@
+.nav_bar {
+    //background-color: $white;
+    border-bottom: 1px solid $lightGrey;
+    display: flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    font-family: Comfortaa;
+    font-weight: 300;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    .nb_side {
+        display: flex;
+            flex-flow: row nowrap;
+        padding: 0 .7em;
+
+        & a {
+            color: $text-color-base;
+            text-decoration: none;
+        }
+
+        & a:hover {
+            color: $red;
+
+            .nb_item_footer {
+                border-bottom-color: $red;
+            }
+        }
+    }
+
+    .nb_item {
+        padding: .5em .8em;
+
+        &-active {
+            .nb_item_footer {
+                border-bottom: 1px solid $text-color-base;
+            }
+        }
+    }
+
+    .nb_item_footer {
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+    }
+}

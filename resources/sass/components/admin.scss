@@ -1,0 +1,19 @@
+@import "admin_panel/menu";
+
+#app {
+    flex-grow: 12;
+    display: flex;
+        flex-flow: column;
+}
+
+.admin {
+    display: flex;
+    flex-grow: 12;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.admin_main {
+    padding: .3em 1em;
+    margin: 0;
+}

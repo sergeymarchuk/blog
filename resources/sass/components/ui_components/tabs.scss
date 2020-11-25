@@ -1,0 +1,33 @@
+.sm_tabs {
+    &-header {
+        display: flex;
+            flex-flow: row nowrap;
+
+        & .header_item {
+            color: $text-color-disable;
+            border-bottom: 1px solid $text-color-disable;
+            display: flex;
+                flex-flow: row nowrap;
+            padding: .3em 1em;
+
+            &:hover {
+                color: $red;
+                cursor: pointer;
+            }
+
+            &.active {
+                border: 1px solid $text-color-disable;
+                border-bottom: none;
+                color: $text-color-base;
+            }
+
+            &:last-child {
+                flex-grow: 10;
+            }
+        }
+    }
+}
+
+.sm-tab-icon {
+    margin-right: .5em;
+}

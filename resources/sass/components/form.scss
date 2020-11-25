@@ -1,0 +1,21 @@
+.login, .register {
+    border: 1px solid $text-color-disable;
+    border-radius: .5em;
+    margin: 25vh auto 0;
+    min-width: 30%;
+    padding: 1em;
+}
+
+.form_header {
+    color: $red;
+    border-bottom: 1px solid $text-color-disable;
+    font-size: 1.5rem;
+    padding: .5em 1em;
+    text-align: center;
+}
+
+.form_body {
+    margin-top: 1em;
+}
+
+@import "ui_components/button";

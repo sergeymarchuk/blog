@@ -1,0 +1,32 @@
+.button_wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.base {
+    color: $text-color-base;
+    border: 2px solid $text-color-base;
+    border-radius: .4em;
+    font-family: Comfortaa;
+    font-weight: 700;
+    padding: .5em 1em;
+
+    &:hover {
+        color: $white;
+        background-color: $text-color-base;
+    }
+}
+
+.danger {
+    color: $red;
+    border: 2px solid $red;
+    border-radius: .4em;
+    font-family: Comfortaa;
+    font-weight: 700;
+    padding: .4em 1em;
+
+    &:hover {
+        color: $white;
+        background-color: $red;
+    }
+}
