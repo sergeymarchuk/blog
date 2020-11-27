@@ -1,36 +1,42 @@
 <template>
     <menu class="a_menu">
         <v-menu-item
-            v-for="item in getMenu"
+            v-for="item in menu"
             :key="item.title"
             :title="item.title"
             :icon="item.icon"
             :subMenu="item.subMenu"
-            :activeItem="activeItem"
+            :activeItem="activeItemMenu"
             @changeActiveItem="setActiveItem"
         ></v-menu-item>
     </menu>
 </template>
 
 <script>
-import admin_menu from "../../../config/admin_menu";
-
 export default {
     name: "VMenu",
+    props: {
+        menu: {
+            type: Array,
+            default: []
+        },
+        defaultMenuItem: {
+            type: String,
+            default: ''
+        }
+    },
     data: () => ({
         activeItem: ""
     }),
-    created() {
-        this.activeItem = admin_menu.activeByDefault
-    },
     computed: {
-        getMenu() {
-            return admin_menu.menu;
+        activeItemMenu() {
+            return this.activeItem === "" ? this.defaultMenuItem : this.activeItem ;
         }
     },
     methods: {
         setActiveItem(itemName) {
             this.activeItem = itemName
+            this.$emit('changeActiveItem', itemName)
         }
     }
 }

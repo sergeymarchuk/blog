@@ -21,7 +21,7 @@ export default {
         },
         {
             title: "users",
-            icon: "fas fa-users"
+            icon: "fas fa-users",
         }
     ],
     activeByDefault: "statistics"
