@@ -15,8 +15,12 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tags')->insert([
-            'name' => Str::random(rand(0,20))
-        ]);
+        if (env('APP_ENV') == 'local') {
+            for ($i = 1; $i < 25; $i++) {
+                DB::table('tags')->insert([
+                    'name' => Str::random(rand(0,20))
+                ]);
+            }
+        }
     }
 }
