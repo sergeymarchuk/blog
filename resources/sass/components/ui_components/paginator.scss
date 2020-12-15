@@ -1,0 +1,45 @@
+.paginator {
+    color: $text-color-disable;
+    display: flex;
+        flex-flow: row nowrap;
+    padding: .5em 0;
+}
+
+.paginator > div:not(:first-child) {
+    margin-left: .5em;
+}
+
+.paginator > div {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    line-height: $lh-normal;
+    height: 2em;
+    width: 2em;
+}
+
+.paginator-item_wrapper {
+    border: 1px solid $text-color-disable;
+    border-radius: 1em;
+
+    &-active {
+        border-radius: 1em;
+        background-color: $red;
+        color: white;
+    }
+
+    &-disabled {
+        border: 1px solid $text-color-disable;
+        border-radius: 1em;
+    }
+
+    &:hover {
+        background-color: $text-color-disable;
+        color: white;
+    }
+}
+
+//.paginator_wrapper {
+//    display: flex;
+//    justify-content: center;
+//}
