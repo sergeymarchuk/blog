@@ -2,6 +2,7 @@
     color: $text-color-disable;
     display: flex;
         flex-flow: row nowrap;
+    font-size: .9em;
     padding: .5em 0;
 }
 
@@ -36,10 +37,11 @@
     &:hover {
         background-color: $text-color-disable;
         color: white;
+        cursor: pointer;
     }
 }
 
-//.paginator_wrapper {
-//    display: flex;
-//    justify-content: center;
-//}
+.paginator_wrapper {
+    display: flex;
+        justify-content: center;
+}

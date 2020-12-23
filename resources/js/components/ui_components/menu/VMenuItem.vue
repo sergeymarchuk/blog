@@ -21,7 +21,7 @@ export default {
     name: "VMenuItem",
     props: {
         title: {
-            default: "default item",
+            default: "",
             type: String
         },
         icon: {
@@ -40,6 +40,7 @@ export default {
     methods: {
         activate(itemName) {
             this.$emit('changeActiveItem', itemName)
+            this.$router.push('/admin/' + itemName)
         },
         ucfirst(string) {
             return string.charAt(0).toUpperCase() + string.slice(1)

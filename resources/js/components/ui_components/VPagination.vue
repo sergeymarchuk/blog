@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         changeActivePage(page) {
-            if (page > 0 && page < this.lastPage) {
+            if (page > 0 && page <= this.lastPage) {
                 this.$emit('changedActivePage', page);
             }
         }

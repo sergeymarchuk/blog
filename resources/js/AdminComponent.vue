@@ -6,7 +6,7 @@
             @changeActiveItem="changeDynamicComponent"
         ></v-menu>
         <main class="admin_main">
-            <components :is="componentName"></components>
+            <router-view></router-view>
         </main>
     </div>
 </template>
@@ -23,10 +23,6 @@ export default {
     computed: {
         tabs() {
             return admin_tabs
-        },
-        componentName() {
-            let aComponent = (this.activeItem === "") ? this.ucFirst(admin_menu.activeByDefault) : this.ucFirst(this.activeItem)
-            return () => import(`./components/admin/V${aComponent}`)
         },
         menu() {
             return admin_menu.menu
