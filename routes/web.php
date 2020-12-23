@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/admin', function () { return view('admin'); })->name('admin');
+Route::any('/admin/{path?}', function () { return view('admin'); })->name('admin');
 Route::get('/', function () { return view('home'); })->name('home');
 Route::get('/about', function () { return view('about'); })->name('about');
 Route::get('/blog', function () { return view('blog'); })->name('blog');
