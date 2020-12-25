@@ -35,6 +35,10 @@ abstract class QueryFilter {
                 call_user_func_array([$this, $method], (array)$value);
             }
         }
+
+        if (!$this->request->has('sort')) {
+            $this->builder->orderBy('id', 'asc');
+        }
     }
 
     /**
