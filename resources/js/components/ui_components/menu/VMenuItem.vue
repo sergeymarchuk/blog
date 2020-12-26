@@ -33,14 +33,13 @@ export default {
             type: Array
         },
         activeItem: {
-            default: "",
+            default: '',
             type: String
         }
     },
     methods: {
         activate(itemName) {
-            this.$emit('changeActiveItem', itemName)
-            this.$router.push('/admin/' + itemName)
+            this.$router.push('/admin/' + itemName).catch(()=>{})
         },
         ucfirst(string) {
             return string.charAt(0).toUpperCase() + string.slice(1)

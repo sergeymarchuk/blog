@@ -6,8 +6,7 @@
             :title="item.title"
             :icon="item.icon"
             :subMenu="item.subMenu"
-            :activeItem="activeItemMenu"
-            @changeActiveItem="setActiveItem"
+            :activeItem="activeMenuItem"
         ></v-menu-item>
     </menu>
 </template>
@@ -20,24 +19,10 @@ export default {
             type: Array,
             default: []
         },
-        defaultMenuItem: {
+        activeMenuItem: {
             type: String,
             default: ''
-        }
+        },
     },
-    data: () => ({
-        activeItem: ""
-    }),
-    computed: {
-        activeItemMenu() {
-            return this.activeItem === "" ? this.defaultMenuItem : this.activeItem ;
-        }
-    },
-    methods: {
-        setActiveItem(itemName) {
-            this.activeItem = itemName
-            this.$emit('changeActiveItem', itemName)
-        }
-    }
 }
 </script>

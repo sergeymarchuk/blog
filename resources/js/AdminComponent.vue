@@ -3,16 +3,17 @@
         <v-menu
             :menu="menu"
             :defaultMenuItem="defaultMenuItem"
+            :activeMenuItem="activeMenuItem"
             @changeActiveItem="changeDynamicComponent"
         ></v-menu>
         <main class="admin_main">
             <router-view></router-view>
         </main>
+        <v-notification></v-notification>
     </div>
 </template>
 
 <script>
-import admin_tabs from "./config/admin_tabs";
 import admin_menu from "./config/admin_menu";
 
 export default {
@@ -26,6 +27,18 @@ export default {
         },
         menu() {
             return admin_menu.menu
+        },
+        activeMenuItem() {
+            let uri = this.$route.path
+            uri = uri.replace('/admin/', '')
+
+            if (uri.indexOf('/') !== -1) {
+                console.log('success')
+                // console.log(uri.substr(0, uri.indexOf('/')))
+                return uri.substr(0, uri.indexOf('/'))
+            }
+
+            return uri
         },
         defaultMenuItem() {
             return admin_menu.activeByDefault
