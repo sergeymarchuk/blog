@@ -10,6 +10,9 @@ window.Vue = require('vue');
 
 import Buefy from 'buefy'
 import router from './router'
+import apiPlugin from './services/api/api.plugin'
+
+Vue.use(apiPlugin)
 Vue.use(Buefy)
 
 /**
