@@ -2,12 +2,12 @@ import apiRoutes from "./apiRoutes";
 import BaseApi from './baseApi';
 
 export default class TagsApi extends BaseApi {
-    all() {
-        return this.$axios.get(apiRoutes.TAGS.LIST)
+    all(page) {
+        return this.$axios.get(apiRoutes.TAGS.LIST, {params: {page: page}})
     }
 
     get(id) {
-        return this.$axios.get(apiRoutes.TAGS.GET, id)
+        return this.$axios.get(apiRoutes.TAGS.GET(id))
     }
 
     create(params) {
@@ -15,10 +15,10 @@ export default class TagsApi extends BaseApi {
     }
 
     update(id, params) {
-        return this.$axios.put(apiRoutes.TAGS.UPDATE, params)
+        return this.$axios.put(apiRoutes.TAGS.UPDATE(id), params)
     }
 
     delete(id) {
-        return this.$axios.post(apiRoutes.TAGS.DELETE, id)
+        return this.$axios.delete(apiRoutes.TAGS.DELETE(id), id)
     }
 }
