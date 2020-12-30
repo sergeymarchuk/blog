@@ -1,0 +1,42 @@
+.sm_notification {
+    line-height: $lh-normal;
+    position: fixed;
+        top: 3.5em;
+        right: 1em;
+    width: 25em;
+
+    &-title {
+        display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        font-family: Comfortaa;
+        font-size: 1em;
+        font-weight: 700;
+        margin: 0 .8em;
+        padding: .4em 0;
+
+        & > div > i {
+            color: $text-color-disable;
+
+            &:hover {
+                color: $text-color-base;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &-body {
+        font-size: .9em;
+        padding: 0 1em .4em 2em;
+    }
+
+    &-item{
+        border-left: .4em solid;
+        border-radius: .5em;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+        &:not(:first-child){
+            margin-top: 1em;
+        }
+    }
+}
