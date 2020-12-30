@@ -33,8 +33,6 @@ export default {
             uri = uri.replace('/admin/', '')
 
             if (uri.indexOf('/') !== -1) {
-                console.log('success')
-                // console.log(uri.substr(0, uri.indexOf('/')))
                 return uri.substr(0, uri.indexOf('/'))
             }
 

@@ -30,3 +30,12 @@
         background-color: $red;
     }
 }
+
+.b-new {
+    color: $text-color-disable;
+
+    &:hover {
+        color: $red;
+        border-color: $red;
+    }
+}

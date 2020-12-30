@@ -1,0 +1,39 @@
+.sm_table > caption {
+    font-size: $font-size-h2;
+    font-weight: 700;
+    line-height: $lh-normal;
+}
+
+.sm_table-head > tr {
+    font-weight: 700;
+
+    &:not(:first-child) {
+        border-bottom: 1px solid $text-color-base;
+    }
+}
+
+.sm_table-body > tr > td, .sm_table-head > tr > td {
+    padding: .3em .7em;
+}
+
+.sm_table-body > tr {
+    border-bottom: 1px dashed $text-color-disable;
+    color: $text-color-base;
+    font-weight: 300;
+
+    &:nth-child(even) {
+        background-color: #f0f0f0;
+    }
+}
+
+.sm_table-action {
+    color: $text-color-disable;
+
+    &:not(:first-child) {
+        margin-left: .2em;
+    }
+
+    &:hover {
+        color: $red
+    }
+}

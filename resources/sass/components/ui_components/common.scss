@@ -1,0 +1,17 @@
+.sm-danger {
+    background-color: rgb(255, 230, 230);
+    border-color: $danger;
+    color: $danger;
+}
+
+.sm-success {
+    background-color: rgb(230, 255, 230);
+    border-color: $success;
+    color: $success;
+}
+
+.sm-warning {
+    background-color: rgb(255, 255, 230);
+    border-color: $warning;
+    color: $warning;
+}
