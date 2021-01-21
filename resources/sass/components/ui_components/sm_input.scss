@@ -1,0 +1,40 @@
+.sm-text_input {
+    input {
+        color: $text-color-base;
+        background-color:#f0f0f0;
+        border-bottom: 1px solid $text-color-base;
+        font-family: Roboto;
+        font-weight: 300;
+        font-size: $font-size-base;
+        line-height: $lh-normal;
+        outline: none;
+        padding: .2em .7em;
+        width: 100%;
+
+        &:focus {
+            border-color: $red !important;
+        }
+
+        &[disabled] {
+            color: $text-color-disable;
+            border-bottom-color: $text-color-disable;
+        }
+    }
+
+    &-details {
+        color: $text-color-disable;
+        display: flex;
+        flex-flow: row nowrap;
+        font-family: Roboto;
+        font-size: .8em;
+        margin-top: .3em;
+    }
+
+    &-details.limit {
+        color: $red;
+    }
+
+    &-message {
+        flex-grow: 10;
+    }
+}
