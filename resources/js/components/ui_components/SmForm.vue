@@ -1,8 +1,8 @@
 <template>
     <form :class="className" :action="url" :method="method">
-        <p class="form_header">
+        <header class="form_header">
             {{className.toUpperCase()}}
-        </p>
+        </header>
         <div class="form_body">
             <slot></slot>
         </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: "VForm",
+    name: "SmForm",
     props: {
         method: {
             default: 'GET',

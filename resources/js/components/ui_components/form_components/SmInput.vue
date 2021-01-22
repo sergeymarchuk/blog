@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    name: "VInput",
+    name: "SmInput",
     props: {
         disabled: {
             type: Boolean,
