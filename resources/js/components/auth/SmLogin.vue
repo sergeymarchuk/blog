@@ -1,40 +1,38 @@
 <template>
-    <v-form
+    <sm-form
         :className="className"
         :url="url"
         :method="method"
     >
         <input type="hidden" name="_token" :value="csrf">
-        <b-field>
-            <b-input placeholder="Email"
-                     type="email"
-                     name="email"
-                     icon-pack="fas"
-                     icon="envelope">
-            </b-input>
-        </b-field>
-        <b-field>
-            <b-input type="password"
-                     name="password"
-                     placeholder="password">
-            </b-input>
-        </b-field>
+        <sm-field>
+            <sm-input
+                :tyep="'email'"
+                :name="'email'"
+                :placeholder="'Email'"
+            ></sm-input>
+        </sm-field>
+        <sm-field>
+            <sm-input
+                :type="'password'"
+                :name="'password'"
+                :placeholder="'Password'"
+            ></sm-input>
+        </sm-field>
         <div class="button_wrapper">
-            <v-button
+            <sm-button
                 :buttonType="'submit'"
                 :buttonClass="'danger'"
             >
                 Log in
-            </v-button>
+            </sm-button>
         </div>
-    </v-form>
+    </sm-form>
 </template>
 
 <script>
-import VForm from "../ui_components/VForm";
 export default {
-    name: "VLogin",
-    components: {VForm},
+    name: "SmLogin",
     data: () => ({
         className: "login",
         url: "http://sm.test/login",
