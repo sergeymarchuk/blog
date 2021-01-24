@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <v-login></v-login>
+    <sm-login></sm-login>
 @endsection

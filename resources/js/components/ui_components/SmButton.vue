@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    name: "VButton",
+    name: "SmButton",
     props: {
         buttonType: {
             default: 'button',

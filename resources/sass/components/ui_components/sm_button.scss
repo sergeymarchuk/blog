@@ -10,29 +10,33 @@
     font-family: Comfortaa;
     font-weight: 700;
     padding: .5em 1em;
+    outline: none;
 
     &:hover {
-        color: $white;
+        color: white;
         background-color: $text-color-base;
     }
 }
 
 .danger {
-    color: $red;
+    background-color: $bc-red-light;
     border: 2px solid $red;
     border-radius: .4em;
+    color: $red;
     font-family: Comfortaa;
     font-weight: 700;
+    outline: none;
     padding: .4em 1em;
 
     &:hover {
-        color: $white;
+        color: white;
         background-color: $red;
     }
 }
 
 .b-new {
     color: $text-color-disable;
+    outline: none;
 
     &:hover {
         color: $red;
