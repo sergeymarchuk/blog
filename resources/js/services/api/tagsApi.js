@@ -21,4 +21,8 @@ export default class TagsApi extends BaseApi {
     delete(id) {
         return this.$axios.delete(apiRoutes.TAGS.DELETE(id), id)
     }
+
+    autocomplete(part) {
+        return this.$axios.get(apiRoutes.TAGS.AUTOCOMPLETE(part))
+    }
 }

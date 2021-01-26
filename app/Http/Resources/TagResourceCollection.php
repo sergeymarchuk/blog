@@ -24,13 +24,15 @@ class TagResourceCollection extends ResourceCollection
     {
         $data = $response->getData(true);
         $responseData['data'] = $data['data'];
-        $responseData['meta'] = [
-            'current_page' => $data['meta']['current_page'],
-            'last_page' => $data['meta']['last_page'],
-            'from' => $data['meta']['from'],
-            'to' => $data['meta']['to'],
-            'total' => $data['meta']['total'],
-        ];
+        if (isset($data['data']['meta'])) {
+            $responseData['meta'] = [
+                'current_page' => $data['meta']['current_page'],
+                'last_page' => $data['meta']['last_page'],
+                'from' => $data['meta']['from'],
+                'to' => $data['meta']['to'],
+                'total' => $data['meta']['total'],
+            ];
+        }
 
         $response->setData($responseData);
     }

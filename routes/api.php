@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('v1/tags', TagController::class);
+Route::get('v1/tag/autocomplete', [TagController::class, 'autocomplete']);

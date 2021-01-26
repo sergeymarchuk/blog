@@ -78,4 +78,15 @@ class TagController extends Controller
     public function destroy(int $id): bool {
         return $this->tagRepository->delete($id);
     }
+
+    /**
+     * Display resource for autocomplete
+     *
+     * @param TagFilter $filter
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function autocomplete(TagFilter $filter) {
+        $tags = Tag::filter($filter)->select('id', 'name as text')->get()->toArray();
+        return response()->json(['data' => $tags]);
+    }
 }
