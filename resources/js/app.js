@@ -8,12 +8,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import Buefy from 'buefy'
 import router from './router'
 import apiPlugin from './services/api/api.plugin'
 
 Vue.use(apiPlugin)
-Vue.use(Buefy)
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,7 +31,6 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  */
 
 const app = new Vue ({
-    buefy: Buefy,
     router,
     el: '#app'
 })
