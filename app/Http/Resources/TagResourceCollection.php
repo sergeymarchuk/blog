@@ -24,7 +24,8 @@ class TagResourceCollection extends ResourceCollection
     {
         $data = $response->getData(true);
         $responseData['data'] = $data['data'];
-        if (isset($data['data']['meta'])) {
+
+        if (isset($data['meta'])) {
             $responseData['meta'] = [
                 'current_page' => $data['meta']['current_page'],
                 'last_page' => $data['meta']['last_page'],

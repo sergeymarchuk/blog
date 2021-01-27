@@ -34,7 +34,7 @@
 
 <script>
 export default {
-    name: "VPagination",
+    name: "SmPagination",
     props: {
         currentPage: {
             type: Number,

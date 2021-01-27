@@ -1,30 +1,31 @@
 <template>
-    <div>
-        <b-field label="Id">
-            <b-input v-model="id" disabled></b-input>
-        </b-field>
-        <b-field label="Tag name">
-            <b-input v-model="name"></b-input>
-        </b-field>
+    <div class="admin-tag">
+        <sm-field :label="'Id :'">
+            <sm-input v-model="id" :type="'number'" :disabled="true"></sm-input>
+        </sm-field>
+        <sm-field :label="'Tag name :'">
+            <sm-input :max="15" v-model="name"
+            ></sm-input>
+        </sm-field>
+
         <div class="button_wrapper" v-show="buttonText !== ''">
-            <v-button
-                :buttonClass="'danger'"
-                @button-click="saveOrCreate"
-            >
+            <sm-button :buttonClass="'danger'" @button-click="saveOrCreate">
                 {{ buttonText }}
-            </v-button>
+            </sm-button>
         </div>
     </div>
 </template>
 
 <script>
 import {notifications} from "../ui_components/notification/notifications";
+import SmButton from "../ui_components/SmButton";
 
 export default {
-    name: "VTag",
+    name: "SmTag",
+    components: {SmButton},
     data: () => ({
-        name: '',
         id: '',
+        name: '',
         buttonText: ''
     }),
     async created() {

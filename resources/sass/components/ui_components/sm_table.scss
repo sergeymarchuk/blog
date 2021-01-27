@@ -1,7 +1,11 @@
+.sm_table {
+    font-family: Roboto;
+    line-height: $lh-normal;
+}
+
 .sm_table > caption {
     font-size: $font-size-h2;
     font-weight: 700;
-    line-height: $lh-normal;
 }
 
 .sm_table-head > tr {

@@ -1,5 +1,5 @@
 <template>
-    <v-table
+    <sm-table
         :caption="tableCaption"
         :paginator="paginator"
         :items="items"
@@ -9,14 +9,14 @@
         @clickItemUpdate="goToItem"
         @clickItemDelete="deleteItem"
         @add="newEntity"
-    ></v-table>
+    ></sm-table>
 </template>
 
 <script>
 import {notifications} from "../ui_components/notification/notifications";
 
 export default {
-    name: "VTags",
+    name: "SmTags",
     data: () => ({
         tableCaption: "Tag",
         items: [],
