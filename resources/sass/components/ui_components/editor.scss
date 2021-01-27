@@ -1,0 +1,30 @@
+.sm-editor-menu {
+    background-color: $bc-red;
+    border-radius: .5em;
+    display: flex;
+        flex-flow: row nowrap;
+    padding: .3em .3em;
+    position: fixed;
+        top: 0;
+        left: 0;
+}
+
+.menububble {
+    position: absolute;
+}
+
+.sm-editor-menu-button {
+    color: $text-color-base;
+    border-radius: .3em;
+    padding: .3em .5em;
+
+    &:hover {
+        background-color: $red;
+        color: white;
+    }
+}
+
+#sm-editor-content {
+    color: $text-color-base;
+    font-family: Roboto;
+}
