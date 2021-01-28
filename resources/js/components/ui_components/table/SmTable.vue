@@ -5,9 +5,9 @@
         <thead class="sm_table-head">
             <tr class="comman_row">
                 <td :colspan="colSpan">
-                    <v-button @button-click="$emit('add')">
+                    <sm-button @button-click="$emit('add')">
                         <div class="b-new"><i class="fas fa-plus"></i> add new {{ caption }}</div>
-                    </v-button>
+                    </sm-button>
                 </td>
             </tr>
             <tr>
@@ -28,12 +28,12 @@
         <tfoot>
             <tr>
                 <td :colspan="colSpan">
-                    <v-pagination
+                    <sm-pagination
                         v-if="Object.keys(paginator).length !== 0"
                         :currentPage="paginator.current_page"
                         :lastPage="paginator.last_page"
                         @changedActivePage="setNewActivePage"
-                    ></v-pagination>
+                    ></sm-pagination>
                 </td>
             </tr>
         </tfoot>
@@ -41,8 +41,11 @@
 </template>
 
 <script>
+import SmButton from "../SmButton";
+
 export default {
-    name: "VTable",
+    name: "SmTable",
+    components: {SmButton},
     props: {
         caption: {
             type: String,
