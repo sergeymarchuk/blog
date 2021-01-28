@@ -1,0 +1,18 @@
+.sm-select {
+    overflow: auto;
+}
+
+option.sm-select-option,
+option.sm-select-option:checked,
+option.sm-select-option:focus
+{
+    background-color: white;
+    color: $text-color-base;
+    font-family: Roboto;
+    padding: .2em .7em;
+}
+
+.sm-select-option:hover {
+    color: $red;
+    cursor: pointer;
+}

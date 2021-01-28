@@ -1,0 +1,31 @@
+.sm-multi_select {
+    color: $text-color-base;
+    background-color:#f0f0f0;
+    border-bottom: 1px solid $text-color-base;
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: $font-size-base;
+    line-height: $lh-normal;
+    padding: .2em .7em;
+    width: 100%;
+
+    & > input {
+        width: 100%;
+    }
+
+    &-selected {
+        display: flex;
+            flex-flow: row;
+    }
+
+    &:focus {
+        border-bottom: 1px solid $red;
+    }
+}
+
+.sm-multi_select--available_values {
+    position: absolute;
+    z-index: 1000;
+}
+
+
