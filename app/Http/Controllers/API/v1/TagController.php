@@ -3,33 +3,21 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\TagResourceCollection;
-use App\Models\Filters\TagFilter;
-use App\Models\Tag;
-use App\Http\Resources\TagResource;
-use App\Repository\RepositoryInterface;
-use Illuminate\Http\Request;
+use App\Http\Resources\{TagResourceCollection, TagResource};
+use App\Models\{Filters\TagFilter, Tag};
+use Illuminate\Http\{JsonResponse, Request};
 
-class TagController extends Controller
-{
-    const PER_PAGE_DEFAULT = 10;
-
-    private $tagRepository;
-
-    public function __construct(RepositoryInterface $repository) {
-        $this->tagRepository = $repository;
-    }
-
+class TagController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @param Request $request
      * @param TagFilter $filter
+     *
      * @return TagResourceCollection
      */
-    public function index(Request $request, TagFilter $filter)
-    {
-        $perPage = $request->perPage ?? self::PER_PAGE_DEFAULT;
+    public function index(Request $request, TagFilter $filter): TagResourceCollection {
+        $perPage = $request->perPage ?? config('constants.per_page');
 
         return new TagResourceCollection(Tag::filter($filter)->paginate($perPage));
     }
@@ -40,7 +28,7 @@ class TagController extends Controller
      * @param  Request  $request
      * @return TagResource
      */
-    public function store(Request $request) {
+    public function store(Request $request): TagResource {
         if ($request->has('name') && $request->filled('name')) {
             return new TagResource($this->tagRepository->create(['name' => $request->name]));
         }
@@ -50,9 +38,10 @@ class TagController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
+     *
      * @return TagResource
      */
-    public function show(int $id) {
+    public function show(int $id): TagResource {
         return new TagResource($this->tagRepository->find($id));
     }
 
@@ -63,7 +52,7 @@ class TagController extends Controller
      * @param  int  $id
      * @return TagResource
      */
-    public function update(Request $request, int $id) {
+    public function update(Request $request, int $id): TagResource {
         if ($request->has('name') && $request->filled('name')) {
             return new TagResource($this->tagRepository->update($id, ['name' => $request->name]));
         }
@@ -73,6 +62,7 @@ class TagController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     *
      * @return bool
      */
     public function destroy(int $id): bool {
@@ -83,9 +73,10 @@ class TagController extends Controller
      * Display resource for autocomplete
      *
      * @param TagFilter $filter
-     * @return \Illuminate\Http\JsonResponse
+     *
+     * @return JsonResponse
      */
-    public function autocomplete(TagFilter $filter) {
+    public function autocomplete(TagFilter $filter): JsonResponse {
         $tags = Tag::filter($filter)->select('id', 'name as text')->get()->toArray();
         return response()->json(['data' => $tags]);
     }

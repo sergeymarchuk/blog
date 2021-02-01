@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\v1\TagController;
+use App\Http\Controllers\API\v1\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('v1/tags', TagController::class);
 Route::get('v1/tag/autocomplete', [TagController::class, 'autocomplete']);
+
+Route::apiResource('v1/posts', PostController::class);
+Route::get('v1/tag/autocomplete', [PostController::class, 'autocomplete']);
