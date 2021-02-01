@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Post;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\{Request, JsonResponse};
 
-class TagResourceCollection extends ResourceCollection
+class PostResourceCollection extends ResourceCollection
 {
 
-    public $collects = 'App\Http\Resources\TagResource';
+    public $collects = 'App\Http\Resources\Post\PostResource';
 
     /**
-     * @param Request  $request
+     * @param Request $request
+     *
      * @return array
      */
     public function toArray($request)
