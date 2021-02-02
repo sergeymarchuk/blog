@@ -2,20 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tag;
+use App\Models\PostTag;
 use Illuminate\Database\Seeder;
 
-class TagSeeder extends Seeder
-{
+class PostTagSeeder extends Seeder {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         if (env('APP_ENV') == 'local') {
-            Tag::factory()->count(50)->create();
+            PostTag::factory()->count(50)->create();
         }
     }
 }
