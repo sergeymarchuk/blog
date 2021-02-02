@@ -14,10 +14,11 @@ class CreateTablePosts extends Migration
     public function up() {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
-            $table->string('slug')->unique();
+            $table->string('title', 200)->unique();
+            $table->string('slug', 200)->unique();
             $table->boolean('published')->default(false);
             $table->timestamp('published_at')->nullable();
+            $table->string('cover', 255)->nullable();
             $table->text('content')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
@@ -31,6 +32,6 @@ class CreateTablePosts extends Migration
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('table_posts');
+        Schema::dropIfExists('posts');
     }
 }
