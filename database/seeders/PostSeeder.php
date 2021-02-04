@@ -13,7 +13,7 @@ class PostSeeder extends Seeder {
      */
     public function run() {
         if (env('APP_ENV') == 'local') {
-            Post::factory()->count(50)->create();
+            Post::factory()->count(50)->hasTags(rand(1,3))->create();
         }
     }
 }
