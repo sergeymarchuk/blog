@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Domains\Post\Resources;
 
 use App\Http\Resources\TagResource;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -10,15 +10,15 @@ class PostResource extends JsonResource {
     /**
      * @param Request $request
      *
-     * @return array
+     * @return array`
      */
     public function toArray($request): array {
         return [
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
-            'published_at' => $this->published_at,
-            'content' => $this->content,
+            'published_at' => date('Y-m-d', strtotime($this->published_at)),
+            'body' => $this->body,
             'cover' => $this->cover,
             'tags' => TagResource::collection($this->tags)
         ];

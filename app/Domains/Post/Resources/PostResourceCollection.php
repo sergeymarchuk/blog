@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Domains\Post\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\{Request, JsonResponse};
 
 class PostResourceCollection extends ResourceCollection
 {
-
-    public $collects = 'App\Http\Resources\Post\PostResource';
+    public $collects = 'App\Domains\Post\Resources\PostResource';
 
     /**
      * @param Request $request
      *
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
         return parent::toArray($request);
     }
