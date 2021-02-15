@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Domains\Post\Models;
 
-use App\Models\Post;
+use App\Domains\Post\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -26,7 +26,7 @@ class PostFactory extends Factory
             'slug' => $this->faker->slug,
             'published' => $this->faker->boolean,
             'published_at' => $this->faker->date(),
-            'content' => $this->faker->paragraph(10),
+            'body' => $this->faker->paragraph(10),
             'cover' => 'https://oboi.com.ua/assets/images/2016/images/940196/1030651/1030655_w560.jpg',
         ];
     }

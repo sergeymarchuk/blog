@@ -19,7 +19,7 @@ class CreateTablePosts extends Migration
             $table->boolean('published')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->string('cover', 255)->nullable();
-            $table->text('content')->nullable();
+            $table->text('body')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
             $table->timestamp('deleted_at')->nullable();
