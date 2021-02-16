@@ -2,35 +2,60 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use App\Models\Filters\TagFilter;
+use App\Models\Tag;
+use App\Domains\Post\FormRequest\{StorePostRequest, UpdatePostRequest};
+use App\Domains\Post\Models\PostFilter;
+use App\Domains\Post\PostService;
+use App\Domains\Post\Resources\{PostResource, PostResourceCollection};
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Post\PostResourceCollection;
-use App\Models\{Filters\PostFilter, Post};
 use Illuminate\Http\{JsonResponse, Request};
 
+/**
+ * Class PostController
+ *
+ * @package App\Http\Controllers\API\v1
+ */
 class PostController extends Controller {
+    /** @var PostService */
+    private $postService;
+
+    /**
+     * PostController constructor.
+     * @param PostService $service
+     */
+    public function __construct(PostService $service) {
+        $this->postService = $service;
+    }
+
     /**
      * @param Request $request
-     *
      * @param PostFilter $filter
+     *
+     * @return PostResourceCollection
      */
     public function index(Request $request, PostFilter $filter) {
-        $perPage = $request->perPage ?? config('constants.per_page');
+        $perPage = $request->perPage ?? config('constants.posts.per_page');
 
-        return new PostResourceCollection(Post::filter($filter)->paginate($perPage));
+        return $this->postService->getResourceCollection($filter, $perPage);
     }
 
     /**
-     * @param Request $request
+     * @param StorePostRequest $request
+     * @return mixed
      */
-    public function store(Request $request) {
-
+    public function store(StorePostRequest $request) {
+        $post = $this->postService->createPost($request->getDto());
+        return new PostResource($post);
     }
 
     /**
      * @param int $id
+     *
+     * @return PostResource
      */
-    public function show(int $id) {
-
+    public function show(int $id): PostResource {
+        return $this->postService->getResource($id);
     }
 
     /**
@@ -38,8 +63,8 @@ class PostController extends Controller {
      *
      * @param int $id
      */
-    public function update(Request $request, int $id) {
-
+    public function update(UpdatePostRequest $request, int $id) {
+        return $this->postService->update($request->getDto(), $id);
     }
 
     /**
@@ -48,13 +73,14 @@ class PostController extends Controller {
      * @return bool
      */
     public function destroy(int $id): bool {
-
+        return $this->postService->delete($id);
     }
 
     /**
      * @return JsonResponse
      */
-    public function autocomplete(): JsonResponse {
-
+    public function autocomplete(TagFilter $filter): JsonResponse {
+        $tags = Tag::filter($filter)->select('id', 'name as text')->get()->toArray();
+        return response()->json(['data' => $tags]);
     }
 }

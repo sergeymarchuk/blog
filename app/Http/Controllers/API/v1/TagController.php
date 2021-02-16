@@ -42,7 +42,7 @@ class TagController extends Controller {
      * @return TagResource
      */
     public function show(int $id): TagResource {
-        return new TagResource($this->tagRepository->find($id));
+        return new TagResource(Tag::find($id));
     }
 
     /**
