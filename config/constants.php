@@ -1,5 +1,10 @@
 <?php
 
 return [
-    'per_page' => 20,
+    'posts' => [
+        'per_page' => 20,
+    ],
+    'tags' => [
+        'per_page' => 20,
+    ]
 ];
