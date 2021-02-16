@@ -10,9 +10,6 @@
     box-sizing: border-box;
 }
 
-@import "~bulma";
-@import '~buefy/src/scss/buefy';
-
 body {
     display: flex;
         align-items: stretch;
@@ -28,6 +25,20 @@ body {
         flex-grow: 10;
         margin-top: 3rem;
     }
+}
+
+.sm-tag {
+    background-color: $text-color-base;
+    border-radius: .3em;
+    color: $text-color-disable;
+    font-family: Roboto;
+    font-weight: 700;
+    padding: .2em .5em;
+    margin: .2em .3em;
+}
+
+.sm-close-el:hover {
+    color: white;
 }
 
 @import "components/nav_bar";

@@ -9,6 +9,7 @@
 }
 
 .sm_table-head > tr {
+    color: $text-color-base;
     font-weight: 700;
 
     &:not(:first-child) {
@@ -21,7 +22,7 @@
 }
 
 .sm_table-body > tr {
-    border-bottom: 1px dashed $text-color-disable;
+    border-bottom: 1px solid $text-color-disable;
     color: $text-color-base;
     font-weight: 300;
 
@@ -38,6 +39,7 @@
     }
 
     &:hover {
-        color: $red
+        color: $red;
+        cursor: pointer;
     }
 }

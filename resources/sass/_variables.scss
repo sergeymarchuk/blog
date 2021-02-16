@@ -1,15 +1,20 @@
-// Typography
+// typography
 $font-size-base: 1rem;
 $font-size-h2: 2rem;
 
 $lh-normal: 1.5;
 $intend-normal: 3rem;
 
-// Colors
+// colors
 $red: rgb(255, 0, 0);
 $lightGrey: #e6e6e6;
 $whiteWithLightOpacity: rgba(255, 255, 255, .65);
 
+// background color
+$bc-red: rgb(255, 0, 0);
+$bc-red-light: rgb(255, 220, 220);
+
+// buttons color
 $danger: rgb(255, 0, 0);
 $success: rgb(0, 190, 0);
 $warning: rgb(255, 150, 0);

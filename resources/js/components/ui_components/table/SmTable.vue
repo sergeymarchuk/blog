@@ -18,7 +18,7 @@
 
         <tbody class="sm_table-body">
             <tr v-for="item in items">
-                <td v-for="(value, field) in item">{{value}}</td>
+                <td v-for="(value, field) in head">{{item[value]}}</td>
                 <td v-if="action">
                     <i class="far fa-eye sm_table-action"  @click="updateItem(item.id)"></i>
                     <i class="far fa-trash-alt sm_table-action"  @click="deleteItem(item.id)"></i></td>

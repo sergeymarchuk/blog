@@ -4,7 +4,7 @@
             <sm-input v-model="id" :type="'number'" :disabled="true"></sm-input>
         </sm-field>
         <sm-field :label="'Tag name :'">
-            <sm-input :max="15" v-model="name"
+            <sm-input :max="250" v-model="name"
             ></sm-input>
         </sm-field>
 

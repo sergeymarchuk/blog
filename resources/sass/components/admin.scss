@@ -1,8 +1,5 @@
 @import "admin_panel/menu";
-@import "ui_components/common";
-@import "ui_components/table";
-@import "ui_components/paginator";
-@import "ui_components/notification";
+@import "ui_components/ui_components";
 
 #app {
     flex-grow: 12;
@@ -20,4 +17,9 @@
 .admin_main {
     padding: .3em 1em;
     margin: 0;
+}
+
+.admin-article, .admin-tag {
+    margin: 0 auto;
+    width: 50%;
 }
