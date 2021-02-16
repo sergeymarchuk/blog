@@ -64,7 +64,6 @@ export default {
     methods: {
         select() {
             this.items.push({id: event.target.value, name: event.target.text})
-            console.log(this.items)
             this.value = ''
         },
         setSelectWidth() {
