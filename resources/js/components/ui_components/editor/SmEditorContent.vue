@@ -1,8 +1,8 @@
 <template>
     <div id="sm-editor-content"
          contenteditable="true"
-         v-html="content"
-         @keyup="updateContent"
+         v-html="editorContent"
+         @keypress="write"
          @mousedown="getStartCursorPoint"
          @mouseup="getEndCursorPoint"
     ></div>
@@ -12,25 +12,26 @@
 export default {
     name: "SmEditorContent",
     props: {
-        value: {
+        content: {
             type: String,
             default: ''
         }
     },
     data: () => ({
-        content: '',
+        editorContent: '',
         startPos: {
             posX: 0,
             posY: 0
         }
     }),
     created() {
-        this.content = this.value
+        if (this.content === '') {
+            this.editorContent = '<p>Some content</p>'
+        } else {
+            this.editorContent = this.content
+        }
     },
     methods: {
-        updateContent() {
-            this.content = document.getElementById('editor-content').innerHTML;
-        },
         getStartCursorPoint() {
             this.startPos.posX = event.pageX
             this.startPos.posY = event.pageY
@@ -45,6 +46,9 @@ export default {
         },
         getFontSize() {
             return parseFloat(window.getComputedStyle(document.getElementById('sm-editor-content'), null).getPropertyValue('font-size'))
+        },
+        write() {
+            this.$emit('write', document.getElementById('sm-editor-content').innerHTML)
         }
     }
 }

@@ -25,6 +25,13 @@
 }
 
 #sm-editor-content {
+    background-color:#f0f0f0;
+    border-bottom: 1px solid $text-color-base;
     color: $text-color-base;
     font-family: Roboto;
+    padding: .2em .7em;
+
+    &:focus {
+        border-color: $red;
+    }
 }

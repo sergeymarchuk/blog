@@ -24,8 +24,8 @@
             </button>
         </sm-editor-menu>
         <sm-editor-content
-            v-model="value"
-            @input="$emit('input', $event.target.value)"
+            :content="content"
+            @write="updateContent"
             @showMenu="activationMenu"
         ></sm-editor-content>
     </div>
@@ -40,7 +40,7 @@ export default {
             type: String,
             default: ''
         },
-        value: {
+        content: {
             type: String,
             default: ''
         }
@@ -60,6 +60,9 @@ export default {
             this.activeMenu = false
             this.top = 0
             this.left = 0
+        },
+        updateContent(newContent) {
+            this.$emit('write', newContent)
         }
     }
 }
