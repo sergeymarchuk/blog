@@ -2,36 +2,39 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use Domain\Tag\FormRequest\StoreTagRequest;
+use Domain\Tag\FormRequest\UpdateTagRequest;
+use Domain\Tag\TagService;
+use Domain\Tag\Resources\{TagResource, TagResourceCollection};
 use App\Http\Controllers\Controller;
-use App\Http\Resources\{TagResourceCollection, TagResource};
-use App\Models\{Filters\TagFilter, Tag};
-use Illuminate\Http\{JsonResponse, Request};
+use Illuminate\Http\{JsonResponse, Request, Response};
 
 class TagController extends Controller {
-    /**
-     * Display a listing of the resource.
-     *
-     * @param Request $request
-     * @param TagFilter $filter
-     *
-     * @return TagResourceCollection
-     */
-    public function index(Request $request, TagFilter $filter): TagResourceCollection {
-        $perPage = $request->perPage ?? config('constants.per_page');
 
-        return new TagResourceCollection(Tag::filter($filter)->paginate($perPage));
+    private $tagService;
+
+    public function __construct(TagService $service) {
+        $this->tagService = $service;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param Request $request
      *
-     * @param  Request  $request
+     * @return TagResourceCollection
+     */
+    public function index(Request $request): TagResourceCollection {
+        $perPage = $request->perPage ?? config('constants.per_page');
+
+        return $this->tagService->getResourceCollection($perPage);
+    }
+
+    /**
+     * @param StoreTagRequest $request
+     *
      * @return TagResource
      */
-    public function store(Request $request): TagResource {
-        if ($request->has('name') && $request->filled('name')) {
-            return new TagResource($this->tagRepository->create(['name' => $request->name]));
-        }
+    public function store(StoreTagRequest $request): TagResource {
+        return new TagResource($this->tagService->createTag($request->getDto()));
     }
 
     /**
@@ -42,20 +45,19 @@ class TagController extends Controller {
      * @return TagResource
      */
     public function show(int $id): TagResource {
-        return new TagResource(Tag::find($id));
+        return $this->tagService->getResource($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
+     * @param  UpdateTagRequest  $request
      * @param  int  $id
+     *
      * @return TagResource
      */
-    public function update(Request $request, int $id): TagResource {
-        if ($request->has('name') && $request->filled('name')) {
-            return new TagResource($this->tagRepository->update($id, ['name' => $request->name]));
-        }
+    public function update(UpdateTagRequest $request, int $id): ?TagResource {
+        return new TagResource($this->tagService->update($request->getDto(), $id));
     }
 
     /**
@@ -66,18 +68,13 @@ class TagController extends Controller {
      * @return bool
      */
     public function destroy(int $id): bool {
-        return $this->tagRepository->delete($id);
+        return $this->tagService->delete($id);
     }
 
     /**
-     * Display resource for autocomplete
-     *
-     * @param TagFilter $filter
-     *
      * @return JsonResponse
      */
-    public function autocomplete(TagFilter $filter): JsonResponse {
-        $tags = Tag::filter($filter)->select('id', 'name as text')->get()->toArray();
-        return response()->json(['data' => $tags]);
+    public function autocomplete(): JsonResponse {
+        return response()->json(['data' => $this->tagService->autocomplete()]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace Domain\Tag\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Request;
@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class TagResource extends JsonResource {
     /**
      * @param Request $request
+     *
      * @return array
      */
     public function toArray($request): array {

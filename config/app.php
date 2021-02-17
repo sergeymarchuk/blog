@@ -175,9 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        App\Providers\RepositoryServiceProvider::class,
-        App\Domains\Post\Providers\PostServiceProviders::class,
-
+        Domain\Post\Providers\PostServiceProvider::class,
+        Domain\Tag\Providers\TagServiceProvider::class,
     ],
 
     /*

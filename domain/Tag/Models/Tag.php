@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace Domain\Tag\Models;
 
-use App\Domains\Post\Models\Post;
-use App\Models\Filters\Filterable;
+use Domain\Post\Models\Post;
+use Domain\Common\Filters\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

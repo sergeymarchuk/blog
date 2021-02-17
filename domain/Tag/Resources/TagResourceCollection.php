@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace Domain\Tag\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\{Request, JsonResponse};
@@ -8,7 +8,7 @@ use Illuminate\Http\{Request, JsonResponse};
 class TagResourceCollection extends ResourceCollection
 {
 
-    public $collects = 'App\Http\Resources\TagResource';
+    public $collects = 'Domain\Tag\Resources\TagResource';
 
     /**
      * @param Request  $request

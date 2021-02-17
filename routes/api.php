@@ -24,4 +24,3 @@ Route::apiResource('v1/tags', TagController::class);
 Route::get('v1/tag/autocomplete', [TagController::class, 'autocomplete']);
 
 Route::apiResource('v1/posts', PostController::class);
-Route::get('v1/tag/autocomplete', [PostController::class, 'autocomplete']);
