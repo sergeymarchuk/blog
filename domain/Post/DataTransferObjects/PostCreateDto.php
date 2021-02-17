@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Domains\Post\DataTransferObjects;
+namespace Domain\Post\DataTransferObjects;
 
 use Illuminate\Support\Str;
 
 /**
- * Class PostUpdateDto
+ * Class PostCreateDto
  * @package App\Domains\Post\DataTransferObjects
  */
-class PostUpdateDto {
-
+class PostCreateDto {
     /** @var string */
     private $title;
 
@@ -26,8 +25,8 @@ class PostUpdateDto {
     private $tags;
 
     public function __construct(
-        string $title = null,
-        string $published_at = null,
+        string $title,
+        string $published_at,
         string $cover = null,
         string $body = null,
         array $tags = null
@@ -80,10 +79,7 @@ class PostUpdateDto {
     public function toArray(): array {
         foreach ($this as $key => $value) {
             $methodName = 'get' . ucfirst(Str::camel($key));
-
-            if (!empty($this->$methodName()) && $key !== 'tags') {
-                $result[$key] = $this->$methodName();
-            }
+            $result[$key] = $this->$methodName();
         }
 
         return $result ?? [];

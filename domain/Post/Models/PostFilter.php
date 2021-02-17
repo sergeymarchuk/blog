@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domains\Post\Models;
+namespace Domain\Post\Models;
 
-use App\Models\Filters\QueryFilter;
+use Domain\Common\Filters\QueryFilter;
 
 class PostFilter extends QueryFilter {
     public function title(string $title) {

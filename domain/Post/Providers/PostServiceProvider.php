@@ -1,13 +1,14 @@
 <?php
 
+namespace Domain\Post\Providers;
 
-namespace App\Domains\Post\Providers;
-
-use App\Domain\Post\PostService;
+use Domain\Common\Models\PostTag;
+use Domain\Post\Models\Post;
+use Domain\Post\PostService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
-class PostServiceProviders extends ServiceProvider implements DeferrableProvider {
+class PostServiceProvider extends ServiceProvider implements DeferrableProvider {
     /**
      * Register services.
      *
@@ -16,7 +17,7 @@ class PostServiceProviders extends ServiceProvider implements DeferrableProvider
     public function register()
     {
         $this->app->singleton(PostService::class, function ($app) {
-            return new PostService();
+            return new PostService($app->make(Post::class), $app->make(PostTag::class));
         });
     }
 

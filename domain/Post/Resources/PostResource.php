@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domains\Post\Resources;
+namespace Domain\Post\Resources;
 
-use App\Http\Resources\TagResource;
+use Domain\Tag\Resources\TagResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Request;
 

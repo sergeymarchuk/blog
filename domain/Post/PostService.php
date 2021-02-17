@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Domains\Post;
+namespace Domain\Post;
 
-use App\Domains\Post\DataTransferObjects\PostCreateDto;
-use App\Domains\Post\DataTransferObjects\PostUpdateDto;
-use App\Models\PostTag;
+use Domain\Post\DataTransferObjects\{PostCreateDto, PostUpdateDto};
+use Domain\Post\Models\{Post, PostFilter};
+use Domain\Post\Resources\{PostResourceCollection, PostResource};
+use Domain\Common\Models\PostTag;
 use Illuminate\Support\{Facades\DB, Str};
-use App\Domains\Post\Models\{Post, PostFilter};
-use App\Domains\Post\Resources\{PostResourceCollection, PostResource};
 use DateTime;
 
 class PostService {
@@ -37,8 +36,9 @@ class PostService {
 
     /**
      * @param PostCreateDto $dto
-     *
      * @return Post|null
+     *
+     * @throws \Exception
      */
     public function createPost(PostCreateDto $dto): ?Post {
         $modelFields = $dto->toArray();
@@ -53,7 +53,7 @@ class PostService {
             DB::commit();
 
             return $post;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             DB::rollBack();
             return null;
         }
@@ -65,7 +65,7 @@ class PostService {
      * @return PostResource
      */
     public function getResource(int $id): PostResource {
-        return new PostResource(Post::find($id));
+        return new PostResource($this->model::find($id));
     }
 
     /**
@@ -92,7 +92,7 @@ class PostService {
             DB::commit();
 
             return new PostResource($this->model::find($id));
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             DB::rollBack();
             return null;
         }

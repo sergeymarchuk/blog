@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domains\Post\Models;
+namespace Domain\Post\Models;
 
-use App\Models\Filters\Filterable;
-use App\Models\Tag;
+use Domain\Tag\Models\Tag;
+use Domain\Common\Filters\Filterable;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes, Factories\HasFactory};
 
 class Post extends Model {

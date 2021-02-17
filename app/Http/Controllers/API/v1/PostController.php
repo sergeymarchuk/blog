@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\API\v1;
 
-use App\Models\Filters\TagFilter;
-use App\Models\Tag;
-use App\Domains\Post\FormRequest\{StorePostRequest, UpdatePostRequest};
-use App\Domains\Post\Models\PostFilter;
-use App\Domains\Post\PostService;
-use App\Domains\Post\Resources\{PostResource, PostResourceCollection};
 use App\Http\Controllers\Controller;
+use Domain\Post\FormRequest\{StorePostRequest, UpdatePostRequest};
+use Domain\Post\Models\PostFilter;
+use Domain\Post\PostService;
+use Domain\Post\Resources\{PostResource, PostResourceCollection};
 use Illuminate\Http\{JsonResponse, Request};
 
 /**
@@ -36,7 +34,6 @@ class PostController extends Controller {
      */
     public function index(Request $request, PostFilter $filter) {
         $perPage = $request->perPage ?? config('constants.posts.per_page');
-
         return $this->postService->getResourceCollection($filter, $perPage);
     }
 

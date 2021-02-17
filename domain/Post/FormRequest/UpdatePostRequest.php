@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domains\Post\FormRequest;
+namespace Domain\Post\FormRequest;
 
-use App\Domains\Post\DataTransferObjects\PostUpdateDto;
+use Domain\Post\DataTransferObjects\PostUpdateDto;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePostRequest extends FormRequest

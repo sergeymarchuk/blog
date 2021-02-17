@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domains\Post\Resources;
+namespace Domain\Post\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Http\{Request, JsonResponse};
 
 class PostResourceCollection extends ResourceCollection
 {
-    public $collects = 'App\Domains\Post\Resources\PostResource';
+    public $collects = 'Domain\Post\Resources\PostResource';
 
     /**
      * @param Request $request

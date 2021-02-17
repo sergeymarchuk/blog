@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domains\Post\FormRequest;
+namespace Domain\Post\FormRequest;
 
-use App\Domains\Post\DataTransferObjects\PostCreateDto;
+use Domain\Post\DataTransferObjects\PostCreateDto;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
