@@ -83,19 +83,13 @@ class PostService {
             $modelFields['slug'] = Str::slug($dto->getTitle());
         }
 
-        DB::beginTransaction();
-        try {
-
-            $this->model::where('id', $id)->update($modelFields);
+        if ($this->model::where('id', $id)->update($modelFields)) {
             $this->postTag::where('post_id', $id)->delete();
             $this->postTag::insert($this->getPostsTagsData($id, $dto->getTags()));
-            DB::commit();
-
             return new PostResource($this->model::find($id));
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return null;
         }
+
+        return null;
     }
 
     /**

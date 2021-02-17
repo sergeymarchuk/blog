@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
-use Domain\Post\FormRequest\{StorePostRequest, UpdatePostRequest};
+use Domain\Post\Models\Post;
+use Domain\Post\FormRequest\{StorePostRequest, StoreTagRequest, UpdatePostRequest};
 use Domain\Post\Models\PostFilter;
 use Domain\Post\PostService;
 use Domain\Post\Resources\{PostResource, PostResourceCollection};
@@ -39,7 +40,9 @@ class PostController extends Controller {
 
     /**
      * @param StorePostRequest $request
-     * @return mixed
+     *
+     * @return PostResource
+     * @throws \Exception
      */
     public function store(StorePostRequest $request) {
         $post = $this->postService->createPost($request->getDto());
@@ -56,9 +59,11 @@ class PostController extends Controller {
     }
 
     /**
-     * @param Request $request
-     *
+     * @param UpdatePostRequest $request
      * @param int $id
+     *
+     * @return PostResource|null
+     * @throws \Exception
      */
     public function update(UpdatePostRequest $request, int $id) {
         return $this->postService->update($request->getDto(), $id);
@@ -71,13 +76,5 @@ class PostController extends Controller {
      */
     public function destroy(int $id): bool {
         return $this->postService->delete($id);
-    }
-
-    /**
-     * @return JsonResponse
-     */
-    public function autocomplete(TagFilter $filter): JsonResponse {
-        $tags = Tag::filter($filter)->select('id', 'name as text')->get()->toArray();
-        return response()->json(['data' => $tags]);
     }
 }
