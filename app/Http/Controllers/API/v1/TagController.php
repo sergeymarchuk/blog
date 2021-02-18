@@ -23,8 +23,7 @@ class TagController extends Controller {
      * @return TagResourceCollection
      */
     public function index(Request $request): TagResourceCollection {
-        $perPage = $request->perPage ?? config('constants.per_page');
-
+        $perPage = $request->perPage ?? config('constants.tags.per_page');
         return $this->tagService->getResourceCollection($perPage);
     }
 
