@@ -18,7 +18,7 @@ class CreateTablePosts extends Migration
             $table->string('slug', 200)->unique();
             $table->boolean('published')->default(false);
             $table->timestamp('published_at')->nullable();
-            $table->string('cover', 255)->nullable();
+            $table->integer('cover')->nullable();
             $table->text('body')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate();
