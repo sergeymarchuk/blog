@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Domains\Post\Models\Post;
+use Domain\Post\Models\Post;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder {
@@ -11,8 +11,8 @@ class PostSeeder extends Seeder {
      *
      * @return void
      */
-    public function run() {
-        if (env('APP_ENV') == 'local') {
+    public function run(): void {
+        if (in_array(env('APP_ENV'), ['local', 'testing'])) {
             Post::factory()->count(50)->hasTags(rand(1,3))->create();
         }
     }

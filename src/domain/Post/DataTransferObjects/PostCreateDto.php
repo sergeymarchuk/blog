@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 /**
  * Class PostCreateDto
- * @package App\Domains\Post\DataTransferObjects
+ * @package App\Domain\Post\DataTransferObjects
  */
 class PostCreateDto {
     /** @var string */

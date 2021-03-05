@@ -19,7 +19,7 @@ class PostResource extends JsonResource {
             'slug' => $this->slug,
             'published_at' => date('Y-m-d', strtotime($this->published_at)),
             'body' => $this->body,
-            'cover' => $this->cover,
+            'cover' => 1,
             'tags' => TagResource::collection($this->tags)
         ];
     }

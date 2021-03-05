@@ -6,14 +6,14 @@ use Illuminate\Support\Str;
 
 /**
  * Class PostUpdateDto
- * @package App\Domains\Post\DataTransferObjects
+ * @package App\Domain\Post\DataTransferObjects
  */
 class PostUpdateDto {
 
     /** @var string */
     private $title;
 
-    /** @var string */
+    /** @var string|null */
     private $published_at;
 
     /** @var string|null */
@@ -49,7 +49,7 @@ class PostUpdateDto {
     /**
      * @return string
      */
-    public function getPublishedAt(): string {
+    public function getPublishedAt(): ?string {
         return $this->published_at;
     }
 

@@ -84,8 +84,11 @@ class PostService {
         }
 
         if ($this->model::where('id', $id)->update($modelFields)) {
-            $this->postTag::where('post_id', $id)->delete();
-            $this->postTag::insert($this->getPostsTagsData($id, $dto->getTags()));
+            if ($dto->getTags() !== null) {
+                $this->postTag::where('post_id', $id)->delete();
+                $this->postTag::insert($this->getPostsTagsData($id, $dto->getTags()));
+            }
+
             return new PostResource($this->model::find($id));
         }
 
