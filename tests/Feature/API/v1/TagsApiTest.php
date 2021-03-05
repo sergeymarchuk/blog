@@ -41,7 +41,7 @@ class TagsApiTest extends TestCase {
         $id = $response['data']['id'];
         $newTagName = bin2hex(random_bytes(5));
 
-        $response = $this->json('PUT', '/api/v1/tags/' . $id, ['name' => $newTagName]);
+        $response = $this->json('PUT', "/api/v1/tags/{$id}", ['name' => $newTagName]);
         $response
             ->assertStatus(200)
             ->assertJsonStructure(['data' => ['id', 'name']])
@@ -54,7 +54,7 @@ class TagsApiTest extends TestCase {
         $id = $response['data']['id'];
         $this->assertDatabaseHas('tags', ['id' => $id]);
 
-        $response = $this->json('DELETE', '/api/v1/tags/' . $id);
+        $response = $this->json('DELETE', "/api/v1/tags/{$id}");
         $response->assertStatus(200);
         $this->assertDatabaseMissing('tags', ['id' => $id]);
     }
