@@ -6,6 +6,7 @@
 /.docker/db/
 /public/css/
 /public/js/
+/public/fonts/
 /.idea/
 .env
 .env.backup
