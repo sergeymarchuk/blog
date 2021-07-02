@@ -14,5 +14,12 @@ export default {
         CREATE: '/api/v1/posts',
         UPDATE: (id) => `/api/v1/posts/${id}`,
         DELETE: (id) => `/api/v1/posts/${id}`,
+    },
+    ATTACHMENT: {
+        LIST: '/api/v1/attachments',
+        GET: (id) => `/api/v1/attachments/${id}`,
+        CREATE: '/api/v1/attachments',
+        UPDATE: (id) => `/api/v1/attachments/${id}`,
+        DELETE: (id) => `/api/v1/attachments/${id}`,
     }
 }

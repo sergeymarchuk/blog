@@ -4,43 +4,44 @@
     padding: .5em 0;
 }
 
-.base {
+%base_button {
+    background-color: $bc-grey-light;
     color: $text-color-base;
-    border: 2px solid $text-color-base;
-    border-radius: .4em;
-    font-family: Comfortaa;
-    font-weight: 700;
-    padding: .5em 1em;
+    border: 1px solid $text-color-base;
+    font-family: Montserrat;
+    font-weight: 400;
+    padding: .3rem 1rem .2rem 1rem;
     outline: none;
 
     &:hover {
-        color: white;
         background-color: $text-color-base;
+        color: white;
+        font-weight: 400;
     }
 }
 
+.default {
+    @extend %base_button;
+}
+
 .danger {
+    @extend %base_button;
     background-color: $bc-red-light;
-    border: 2px solid $red;
-    border-radius: .4em;
+    border-color: $red;
     color: $red;
-    font-family: Comfortaa;
-    font-weight: 700;
-    outline: none;
-    padding: .4em 1em;
 
     &:hover {
-        color: white;
         background-color: $red;
     }
 }
 
-.b-new {
-    color: $text-color-disable;
-    outline: none;
+.success {
+    @extend %base_button;
+    background-color: $bc-green-light;
+    border-color: $success;
+    color: $success;
 
     &:hover {
-        color: $red;
-        border-color: $red;
+        background-color: $success;
     }
 }

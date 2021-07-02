@@ -5,6 +5,7 @@ import SmTags from "./components/admin/SmTags";
 import SmTag from "./components/admin/SmTag";
 import SmPosts from "./components/admin/SmPosts";
 import SmPost from "./components/admin/SmPost";
+import SmAttachments from "./components/admin/SmAttachments";
 import VUsers from "./components/admin/VUsers";
 
 Vue.use(VueRouter);
@@ -25,6 +26,9 @@ export default new VueRouter({
         },
         {
             path: '/admin/posts/:postId', name: 'post', component: SmPost
+        },
+        {
+            path: '/admin/attachments', name: 'attachments',component: SmAttachments
         },
         {
             path: '/admin/users', component: VUsers

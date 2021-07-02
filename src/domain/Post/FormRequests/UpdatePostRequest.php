@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\Post\FormRequest;
+namespace Domain\Post\FormRequests;
 
 use Domain\Post\DataTransferObjects\PostUpdateDto;
 use Illuminate\Foundation\Http\FormRequest;

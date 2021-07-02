@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
-use Domain\Post\Models\Post;
-use Domain\Post\FormRequest\{StorePostRequest, StoreTagRequest, UpdatePostRequest};
+use Domain\Post\FormRequests\{StorePostRequest, UpdatePostRequest};
 use Domain\Post\Models\PostFilter;
 use Domain\Post\PostService;
 use Domain\Post\Resources\{PostResource, PostResourceCollection};
-use Illuminate\Http\{JsonResponse, Request};
+use Illuminate\Http\Request;
 
 /**
  * Class PostController

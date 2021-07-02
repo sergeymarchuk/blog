@@ -1,0 +1,65 @@
+.sm_modal {
+    &--wrapper {
+        background-color: rgba(150, 150, 150, 0.5);
+        display: flex;
+            justify-content: center;
+            align-items: center;
+        position: fixed;
+            top: 0;
+            left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        overflow: scroll;
+        z-index: 1000;
+    }
+
+    &--window {
+        background-color: white;
+        border-radius: .3rem;
+        box-shadow: 0 0 1em rgb(0,0,0);
+        max-width: 80vw;
+        max-height: 90vh;
+    }
+    &--header {
+        border-bottom: 1px solid $text-color-disable;
+        border-color: $red;
+        border-radius: .3rem .3rem 0 0;
+        color: $text-color-base;
+        display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        font-family: Montserrat;
+        font-size: $fs-modal-title;
+        font-weight: 500;
+        padding: .3rem .8rem;
+    }
+
+    &--close {
+        padding-left: .5em;
+
+        &:hover {
+            color: $red;
+            cursor: pointer;
+        }
+    }
+
+    &--body {
+        max-width: 80vw;
+        max-height: 80vh;
+        overflow: auto;
+        padding: .3em .8em;
+    }
+
+    &--footer {
+        display: flex;
+            flex-flow: row;
+            justify-content: flex-end;
+        border-top: 1px solid $text-color-disable;
+        border-color: $red;
+        padding: .5rem 1rem;
+
+        & > button:not(:last-child) {
+            margin-right: .5rem;
+        }
+    }
+}

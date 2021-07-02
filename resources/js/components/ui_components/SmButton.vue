@@ -13,12 +13,12 @@ export default {
     name: "SmButton",
     props: {
         buttonType: {
-            default: 'button',
-            type: String
+            type: String,
+            default: 'button'
         },
         buttonClass: {
-            default: '',
-            type: String
+            type: String,
+            default: 'default'
         }
     }
 }

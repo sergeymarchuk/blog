@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\API\v1;
 
-use Domain\Tag\FormRequest\StoreTagRequest;
-use Domain\Tag\FormRequest\UpdateTagRequest;
-use Domain\Tag\TagService;
+use Domain\Tag\FormRequests\{StoreTagRequest, UpdateTagRequest};
 use Domain\Tag\Resources\{TagResource, TagResourceCollection};
+use Domain\Tag\TagService;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\{JsonResponse, Request, Response};
+use Illuminate\Http\{JsonResponse, Request};
 
 class TagController extends Controller {
 

@@ -1,6 +1,6 @@
 <template>
-    <form :class="className" :action="url" :method="method">
-        <header class="form_header">
+    <form :class="className" :action="url" :method="method" :name="name">
+        <header class="form_header" v-if="className">
             {{className.toUpperCase()}}
         </header>
         <div class="form_body">
@@ -14,16 +14,20 @@ export default {
     name: "SmForm",
     props: {
         method: {
-            default: 'GET',
-            type: String
+            type: String,
+            default: 'GET'
         },
         url: {
-            default: '',
-            type: String
+            type: String,
+            default: ''
         },
         className: {
-            default: "form",
-            type: String
+            type: String,
+            default: ''
+        },
+        name: {
+            type: String,
+            default: ''
         }
     }
 }

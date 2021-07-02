@@ -16,6 +16,10 @@ export default {
                 {
                     title: "tags",
                     icon: "fas fa-hashtag"
+                },
+                {
+                    title: "attachments",
+                    icon: "far fa-image"
                 }
             ]
         },

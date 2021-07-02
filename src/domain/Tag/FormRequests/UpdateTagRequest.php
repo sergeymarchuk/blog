@@ -1,11 +1,11 @@
 <?php
 
-namespace Domain\Tag\FormRequest;
+namespace Domain\Tag\FormRequests;
 
-use Domain\Tag\DataTransferObjects\TagCreateDto;
+use Domain\Tag\DataTransferObjects\TagUpdateDto;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTagRequest extends FormRequest {
+class UpdateTagRequest extends FormRequest {
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -22,15 +22,15 @@ class StoreTagRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'name' => 'required|unique:tags|max:250',
+            'name' => 'unique:tags|max:250',
         ];
     }
 
     /**
-     * @return TagCreateDto
+     * @return TagUpdateDto
      */
-    public function getDto(): TagCreateDto {
-        return new TagCreateDto(
+    public function getDto(): TagUpdateDto {
+        return new TagUpdateDto(
             $this->get('name'),
         );
     }
